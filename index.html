@@ -1,0 +1,30 @@
+<!DOCTYPE html?>
+<html>
+<head>
+  <meta charaset="utf-8">
+  <title>Trello</title>
+</head>
+<body>
+  <webview id="mainWebview" src="https://trello.com/search?q=%40me%20lists%3A%22To%20Do%2C%20Working%20On%22%20is%3Aopen" autosize="on" nodeindicator></webview>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    webview {
+      position; absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      height: 100%;
+    }
+  </style>
+  <script>
+    var webview = document.getElementById('mainWebview');
+    webview.addEventListener('new-window', function(e) {
+      require('shell').openExternal(e.url);
+    });
+  </script>
+</body>
+</html>
